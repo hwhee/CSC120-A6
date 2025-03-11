@@ -17,7 +17,12 @@ public class TrainTest {
     // Car Tests
     @Test
     public void testCarAddPassenger() {
-        fail();
+        Passenger p = new Passenger("john");
+        Car c = new Car (1);
+        assert False (c.isOnboard(p));
+        c.addPassenger(p);
+        assert True (c.isOnboard(p));
+        assert True (c.seatsRemaining==0);
     }
 
     @Test
@@ -33,7 +38,12 @@ public class TrainTest {
 
     @Test
     public void testPassengerBoardCarFull() {
-        fail();
+        Passenger p = new Passenger("john");
+        Car c = new Car (0);
+        assert False (c.isOnboard(p));
+        c.addPassenger(p);
+        assert False (c.isOnboard(p));
+        assert True (c.seatsRemaining==0);
     }
 
     // Train Tests
