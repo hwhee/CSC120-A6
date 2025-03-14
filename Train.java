@@ -5,6 +5,7 @@ public class Train implements TrainRequirements{
     //attributes
     private Engine engine;
     private ArrayList <Car> cars;
+    private int [] carCheck;
 
     /**
      * Constructor for Train class
@@ -35,6 +36,13 @@ public class Train implements TrainRequirements{
     }
 
     /**
+     * Accessor for car array size added for unit testing
+     */
+    public int trainLength(){
+        return this.cars.size();
+    }
+
+    /**
      * Accessor for max capacity
      */
     public int getMaxCapacity(){
@@ -56,15 +64,24 @@ public class Train implements TrainRequirements{
         return openSeats;
     }
 
+    /**
+     * Accessor for carCheck (for printManifest unit test)
+     */
+    public int[] getCarCheck(){
+        return carCheck;
+    }
+
     //methods
 
     /**
-     * prints manifests from each car
+     * prints manifests from each car. Added carCheck variable to check that method iterates through each car's manifest. 
      */
     public void printManifest(){
+        carCheck = new int[cars.size()];
         for (int i = 0; i<cars.size();i++){
             cars.get(i).printManifest();
             System.out.println("\n");
+            carCheck[i]= i;
         }
     }
 

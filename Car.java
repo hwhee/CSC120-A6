@@ -32,7 +32,7 @@ public class Car implements CarRequirements{
     }
 
     public boolean isOnboard(Passenger p){
-        return this.passenger.contains(p);
+        return this.passengersOnboard.contains(p);
     }
 
     //methods:
